@@ -1,28 +1,33 @@
 <form {{on "submit" this.onSubmit}}>
   <fieldset>
     <label for="name">Name</label>
-    <Input
-      @type="text"
-      id="name"
-      @value={{this.name}}
-      {{on "change" this.onChangeName}}
-    />
+    <Input @type="text" id="name" {{on "input" this.onChangeName}} />
   </fieldset>
 
   <fieldset>
     <label for="email">Email</label>
-    <Input @type="email" id="email" />
+    <Input @type="email" id="email" {{on "input" this.onChangeEmail}} />
   </fieldset>
 
   <fieldset>
     <label for="phone-number">Phone Number</label>
-    <Input @type="text" id="phone-number" />
+    <Input
+      @type="text"
+      id="phone-number"
+      {{on "input" this.onChangePhoneNumber}}
+    />
   </fieldset>
 
   {{#if this.showErrorMessage}}
     <div>
-      <p>The fields are requ</p>
+      <p>The fields are required</p>
     </div>
+  {{/if}}
+
+  {{#if this.showData}}
+    <p>Name: {{this.name}}</p>
+    <p>Email: {{this.email}}</p>
+    <p>Phone Number: {{this.formattedPhoneNumber}}</p>
   {{/if}}
 
   <button type="submit">Submit</button>

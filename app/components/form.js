@@ -10,11 +10,6 @@ export default class FormTest extends Component {
   @tracked showErrorMessage = false;
 
   @action
-  onChangeField(e, fieldName) {
-    this[fieldName] = e.target.value;
-  }
-
-  @action
   onChangeName(e) {
     this.name = e.target.value;
   }
@@ -25,15 +20,26 @@ export default class FormTest extends Component {
   }
 
   @action
+  onChangePhoneNumber(e) {
+    this.phoneNumber = e.target.value;
+  }
+
+  @action
   onSubmit(event) {
     event.preventDefault();
 
-    if (!this.name) {
+    if (!this.name || !this.email || !this.phoneNumber) {
       this.showErrorMessage = true;
     } else {
       this.showErrorMessage = false;
     }
+  }
 
-    console.log(this.model);
+  get formattedPhoneNumber() {
+    return this.phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+  }
+
+  get showData() {
+    return this.name && this.email && this.phoneNumber;
   }
 }
