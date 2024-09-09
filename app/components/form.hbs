@@ -1,0 +1,29 @@
+<form {{on "submit" this.onSubmit}}>
+  <fieldset>
+    <label for="name">Name</label>
+    <Input
+      @type="text"
+      id="name"
+      @value={{this.name}}
+      {{on "change" this.onChangeName}}
+    />
+  </fieldset>
+
+  <fieldset>
+    <label for="email">Email</label>
+    <Input @type="email" id="email" />
+  </fieldset>
+
+  <fieldset>
+    <label for="phone-number">Phone Number</label>
+    <Input @type="text" id="phone-number" />
+  </fieldset>
+
+  {{#if this.showErrorMessage}}
+    <div>
+      <p>The fields are requ</p>
+    </div>
+  {{/if}}
+
+  <button type="submit">Submit</button>
+</form>
