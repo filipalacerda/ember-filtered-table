@@ -1,0 +1,9 @@
+<fieldset>
+  <label for="name">{{@label}}</label>
+  <Input
+    @type={{@type}}
+    id={{@id}}
+    @value={{@value}}
+    {{on "input" @onChange}}
+  />
+</fieldset>

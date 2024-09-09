@@ -40,6 +40,8 @@ export default class FormTest extends Component {
     this.name = '';
     this.email = '';
     this.phoneNumber = '';
+
+    this.showErrorMessage = false;
   }
 
   get formattedPhoneNumber() {
