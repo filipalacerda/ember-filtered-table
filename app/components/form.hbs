@@ -1,12 +1,22 @@
 <form {{on "submit" this.onSubmit}}>
   <fieldset>
     <label for="name">Name</label>
-    <Input @type="text" id="name" {{on "input" this.onChangeName}} />
+    <Input
+      @type="text"
+      id="name"
+      @value={{this.name}}
+      {{on "input" this.onChangeName}}
+    />
   </fieldset>
 
   <fieldset>
     <label for="email">Email</label>
-    <Input @type="email" id="email" {{on "input" this.onChangeEmail}} />
+    <Input
+      @type="email"
+      id="email"
+      @value={{this.email}}
+      {{on "input" this.onChangeEmail}}
+    />
   </fieldset>
 
   <fieldset>
@@ -14,6 +24,7 @@
     <Input
       @type="text"
       id="phone-number"
+      @value={{this.phoneNumber}}
       {{on "input" this.onChangePhoneNumber}}
     />
   </fieldset>
@@ -31,4 +42,5 @@
   {{/if}}
 
   <button type="submit">Submit</button>
+  <button type="button" {{on "click" this.clearForm}}>Clear</button>
 </form>

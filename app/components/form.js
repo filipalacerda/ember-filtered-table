@@ -35,6 +35,13 @@ export default class FormTest extends Component {
     }
   }
 
+  @action
+  clearForm() {
+    this.name = '';
+    this.email = '';
+    this.phoneNumber = '';
+  }
+
   get formattedPhoneNumber() {
     return this.phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
   }
